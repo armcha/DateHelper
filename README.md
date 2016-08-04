@@ -4,6 +4,30 @@
 Simple dateHelper, that can help you to make your life easy.
 Just give date to dateHelper and get in different format
 
+Download
+--------
+
+Gradle:
+```groovy
+
+repositories {
+    maven {
+        url 'https://dl.bintray.com/armcha/maven/'
+    }
+}
+
+compile 'com.github.armcha:datehelper:1.0.0'
+```
+Maven:
+```xml
+<dependency>
+  <groupId>com.github.armcha</groupId>
+  <artifactId>datehelper</artifactId>
+  <version>1.0.0</version>
+  <type>pom</type>
+</dependency>
+```
+
 Usage
 --------
 
