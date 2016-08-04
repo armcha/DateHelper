@@ -4,26 +4,21 @@
 Simple dateHelper, that can help you to make your life easy.
 Just give date to dateHelper and get in different format
 
+![](screen.png)
+
 Download
 --------
 
 Gradle:
 ```groovy
-
-repositories {
-    maven {
-        url 'https://dl.bintray.com/armcha/maven/'
-    }
-}
-
-compile 'com.github.armcha:datehelper:1.0.0'
+compile 'com.github.armcha:datehelper:1.0.1'
 ```
 Maven:
 ```xml
 <dependency>
   <groupId>com.github.armcha</groupId>
   <artifactId>datehelper</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <type>pom</type>
 </dependency>
 ```
@@ -50,7 +45,7 @@ dateHelper.getYear() ---------------- 1993
 
 You can also add current time zone offset to your date, just adding this line 
 ```java
-dateHelper.shouldAddCurrentTimeZoneOffsetToDate(true);
+dateHelper.shouldAddCurrentTimeZoneOffsetToDate();
 ```
 
 We also have string to date static method, just call it in this way
