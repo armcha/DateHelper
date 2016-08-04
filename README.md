@@ -4,7 +4,7 @@
 Simple dateHelper, that can help you to make your life easy.
 Just give date to dateHelper and get in different format
 
-![](screen.png)
+![](screen_new.png)
 
 Download
 --------
