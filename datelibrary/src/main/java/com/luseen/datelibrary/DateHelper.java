@@ -43,7 +43,7 @@ public class DateHelper {
 
     public DateHelper(Date date) {
         if (addCurrentTimeZoneOffsetToDate) {
-            this.date = addTimezoneHourToDate(date);
+            this.date = addTimezoneOffsetToDate(date);
         } else {
             this.date = date;
         }
@@ -51,7 +51,7 @@ public class DateHelper {
 
     public DateHelper(Date date, Locale locale) {
         if (addCurrentTimeZoneOffsetToDate) {
-            this.date = addTimezoneHourToDate(date);
+            this.date = addTimezoneOffsetToDate(date);
         } else {
             this.date = date;
         }
@@ -211,6 +211,13 @@ public class DateHelper {
         }
     }
 
+    /**
+     * Convert date from String to Date format
+     *
+     * @param date         string date
+     * @param dateTemplate for parsing
+     * @return formatted Date
+     */
     public static Date stringToDate(String date, String dateTemplate) {
 
         DateFormat format = new SimpleDateFormat(dateTemplate, Locale.getDefault());
@@ -223,6 +230,14 @@ public class DateHelper {
         return null;
     }
 
+    /**
+     * Convert date from String to Date format
+     *
+     * @param date         string date
+     * @param dateTemplate for parsing
+     * @param locale       choose locale
+     * @return formatted Date
+     */
     public static Date stringToDate(String date, String dateTemplate, Locale locale) {
 
         DateFormat format = new SimpleDateFormat(dateTemplate, locale);
@@ -258,7 +273,13 @@ public class DateHelper {
         return hourAndMinuteOffset;
     }
 
-    private Date addTimezoneHourToDate(Date date) {
+    /**
+     * Adding current time zone offset
+     *
+     * @param date target date to add time zone offset
+     * @return date with time zone offset
+     */
+    private Date addTimezoneOffsetToDate(Date date) {
         int[] hourAndMinuteOffset = getCurrentTimeZoneOffset(Locale.getDefault());
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
@@ -270,9 +291,8 @@ public class DateHelper {
 
     /**
      * if you want addCurrentTimeZoneOffset to your date, just call this method
-     * @param addCurrentTimeZoneOffsetToDate for enable this option set true 
      */
-    public void shouldAddCurrentTimeZoneOffsetToDate(boolean addCurrentTimeZoneOffsetToDate) {
-        this.addCurrentTimeZoneOffsetToDate = addCurrentTimeZoneOffsetToDate;
+    public void shouldAddCurrentTimeZoneOffsetToDate() {
+        addCurrentTimeZoneOffsetToDate = true;
     }
 }
