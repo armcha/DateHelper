@@ -1,15 +1,13 @@
 package com.luseen.datelibrary;
 
 import android.support.annotation.Nullable;
+import android.support.v4.util.Pair;
 import android.util.Log;
 
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.TimeZone;
 
 /**
  * Created by Chatikyan on 19.04.2016.
@@ -24,21 +22,9 @@ public class DateHelper {
 
     private boolean addCurrentTimeZoneOffsetToDate = false;
 
-    private static final String NULL_DATE = "-";
+    private String nullDateText = "-";
 
     private static final String LOG_TEXT = "date must not be null";
-
-    public static final String SIMPLE_DATE_PATTERN = "yyyy MMM";
-
-    public static final String DATE_PATTERN_WITH_T = "yyyy-MM-dd'T'HH:mm:ss";
-
-    public static final String DATE_PATTERN_WITH_T_AND_AP_PM = "yyyy-MM-dd'T'hh:mm:ss a";
-
-    public static final String USUAL_DATE_PATTERN = "yyyy-MM-dd HH:mm:ss";
-
-    public static final String ISO8601_DATE_PATTERN = "yyyy-MM-dd'T'HH:mm:ss'Z'";
-
-    public static final String EVENT_TIMESTAMP_DATE_PATTERN = "yyyy/MM/dd'T'HH:mm:ss'Z'";
 
 
     public DateHelper(Date date) {
@@ -64,7 +50,7 @@ public class DateHelper {
             return simpleDateFormat.format(date);
         } else {
             Log.e(DateHelper.class.getSimpleName(), LOG_TEXT);
-            return NULL_DATE;
+            return nullDateText;
         }
     }
 
@@ -86,7 +72,7 @@ public class DateHelper {
             return simpleDateFormat.format(date);
         } else {
             Log.e(DateHelper.class.getSimpleName(), LOG_TEXT);
-            return NULL_DATE;
+            return nullDateText;
         }
     }
 
@@ -97,7 +83,7 @@ public class DateHelper {
             return simpleDateFormat.format(date);
         } else {
             Log.e(DateHelper.class.getSimpleName(), LOG_TEXT);
-            return NULL_DATE;
+            return nullDateText;
         }
     }
 
@@ -108,7 +94,7 @@ public class DateHelper {
             return simpleDateFormat.format(date);
         } else {
             Log.e(DateHelper.class.getSimpleName(), LOG_TEXT);
-            return NULL_DATE;
+            return nullDateText;
         }
     }
 
@@ -119,7 +105,7 @@ public class DateHelper {
             return simpleDateFormat.format(date);
         } else {
             Log.e(DateHelper.class.getSimpleName(), LOG_TEXT);
-            return NULL_DATE;
+            return nullDateText;
         }
     }
 
@@ -130,7 +116,7 @@ public class DateHelper {
             return simpleDateFormat.format(date);
         } else {
             Log.e(DateHelper.class.getSimpleName(), LOG_TEXT);
-            return NULL_DATE;
+            return nullDateText;
         }
     }
 
@@ -141,7 +127,7 @@ public class DateHelper {
             return simpleDateFormat.format(date);
         } else {
             Log.e(DateHelper.class.getSimpleName(), LOG_TEXT);
-            return NULL_DATE;
+            return nullDateText;
         }
     }
 
@@ -152,7 +138,7 @@ public class DateHelper {
             return simpleDateFormat.format(date);
         } else {
             Log.e(DateHelper.class.getSimpleName(), LOG_TEXT);
-            return NULL_DATE;
+            return nullDateText;
         }
     }
 
@@ -163,7 +149,7 @@ public class DateHelper {
             return simpleDateFormat.format(date);
         } else {
             Log.e(DateHelper.class.getSimpleName(), LOG_TEXT);
-            return NULL_DATE;
+            return nullDateText;
         }
     }
 
@@ -174,7 +160,7 @@ public class DateHelper {
             return simpleDateFormat.format(date);
         } else {
             Log.e(DateHelper.class.getSimpleName(), LOG_TEXT);
-            return NULL_DATE;
+            return nullDateText;
         }
     }
 
@@ -196,7 +182,7 @@ public class DateHelper {
             return simpleDateFormat.format(date);
         } else {
             Log.e(DateHelper.class.getSimpleName(), LOG_TEXT);
-            return NULL_DATE;
+            return nullDateText;
         }
     }
 
@@ -212,79 +198,17 @@ public class DateHelper {
     }
 
     /**
-     * Convert date from String to Date format
-     *
-     * @param date         string date
-     * @param dateTemplate for parsing
-     * @return formatted Date
-     */
-    public static Date stringToDate(String date, String dateTemplate) {
-
-        DateFormat format = new SimpleDateFormat(dateTemplate, Locale.getDefault());
-
-        try {
-            return format.parse(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    /**
-     * Convert date from String to Date format
-     *
-     * @param date         string date
-     * @param dateTemplate for parsing
-     * @param locale       choose locale
-     * @return formatted Date
-     */
-    public static Date stringToDate(String date, String dateTemplate, Locale locale) {
-
-        DateFormat format = new SimpleDateFormat(dateTemplate, locale);
-
-        try {
-            return format.parse(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    /**
-     * hourAndMinuteOffset[0] hour offset
-     * hourAndMinuteOffset[1] minute offset
-     *
-     * @param locale current locale
-     * @return hourAndMinuteOffset array, current time zone offset
-     */
-    private int[] getCurrentTimeZoneOffset(Locale locale) {
-        Calendar calendar = Calendar.getInstance(TimeZone.getDefault(),
-                Locale.getDefault());
-        Date currentLocalTime = calendar.getTime();
-        DateFormat date = new SimpleDateFormat("Z", locale);
-        String localTime = date.format(currentLocalTime);
-
-        int hourOffset = Integer.valueOf(localTime.substring(1, 3));
-        int minuteOffset = Integer.valueOf(localTime.substring(3, localTime.length()));
-        int[] hourAndMinuteOffset = new int[2];
-        hourAndMinuteOffset[0] = hourOffset;
-        hourAndMinuteOffset[1] = minuteOffset;
-
-        return hourAndMinuteOffset;
-    }
-
-    /**
      * Adding current time zone offset
      *
      * @param date target date to add time zone offset
      * @return date with time zone offset
      */
     private Date addTimezoneOffsetToDate(Date date) {
-        int[] hourAndMinuteOffset = getCurrentTimeZoneOffset(Locale.getDefault());
+        DatePair hourAndMinuteOffset = DateConverter.getCurrentTimeZoneOffset();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        calendar.add(Calendar.HOUR, hourAndMinuteOffset[0]);
-        calendar.add(Calendar.MINUTE, hourAndMinuteOffset[1]);
+        calendar.add(Calendar.HOUR, hourAndMinuteOffset.getHour());
+        calendar.add(Calendar.MINUTE, hourAndMinuteOffset.getMinute());
 
         return calendar.getTime();
     }
@@ -294,5 +218,27 @@ public class DateHelper {
      */
     public void shouldAddCurrentTimeZoneOffsetToDate() {
         addCurrentTimeZoneOffsetToDate = true;
+    }
+
+    /**
+     * set text in case if your date is null
+     *
+     * @param nullDateText text to set for null date
+     */
+    public void setNullDateText(String nullDateText) {
+        this.nullDateText = nullDateText;
+    }
+
+    /**
+     * get given date
+     *
+     * @return date
+     */
+    public Date getGivenDate() {
+        if (date == null) {
+            Log.e("GETTING GIVEN DATE ", "GIVEN DATE IS NULL!!!");
+            return null;
+        } else
+            return date;
     }
 }

@@ -68,6 +68,15 @@
             android:text="getMonth()"
             android:textColor="@android:color/black"
             android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="getCurrentTimeZoneOffset()"
+            android:textColor="@android:color/black"
+            android:textSize="13sp" />
     </LinearLayout>
 
   <LinearLayout
@@ -132,6 +141,15 @@
         android:text="TextView"
         android:textColor="@android:color/black"
         android:textSize="13sp"/>
+
+      <TextView
+          android:id="@+id/get_current_time_zone_offset"
+          android:layout_marginBottom="10dp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="TextView"
+          android:textColor="@android:color/black"
+          android:textSize="13sp"/>
 
   </LinearLayout>
 

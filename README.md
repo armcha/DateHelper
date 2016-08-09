@@ -11,14 +11,14 @@ Download
 
 Gradle:
 ```groovy
-compile 'com.github.armcha:datehelper:1.0.1'
+compile 'com.github.armcha:datehelper:2.0.0'
 ```
 Maven:
 ```xml
 <dependency>
   <groupId>com.github.armcha</groupId>
   <artifactId>datehelper</artifactId>
-  <version>1.0.1</version>
+  <version>2.0.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -50,9 +50,30 @@ dateHelper.shouldAddCurrentTimeZoneOffsetToDate();
 
 We also have string to date static method, just call it in this way
 ```java
-DateHelper.stringToDate(String yourDate,String dateTemplate)
+DateConverter.stringToDate(String yourDate,String dateTemplate)
 ```
 it will return you Date
+
+Get current time zone hour and minute offset
+```java
+DateConverter.getCurrentTimeZoneOffset().getHour()
+DateConverter.getCurrentTimeZoneOffset().getMinute()
+```
+
+Get current given date
+```java
+dateHelper.getGivenDate()
+```
+
+Change text place holder in case you have null date
+```java
+dateHelper.setNullDateText("Your place holder");
+```
+
+Now we have a lot of date patterns, you can find patterns inside DatePatterns class 
+```java
+DateConverter.stringToDate("1993 Apr 13", DatePatterns.SIMPLE_DATE_PATTERN_WITH_DAY.toString())
+```
 
 ## Contact 
 
