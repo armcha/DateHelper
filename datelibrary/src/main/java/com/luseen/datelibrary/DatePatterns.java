@@ -1,8 +1,5 @@
 package com.luseen.datelibrary;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by Chatikyan on 08.08.2016-18:22.
  */

@@ -1,16 +1,13 @@
 package com.luseen.luseendatehelper;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.luseen.datelibrary.DateConverter;
 import com.luseen.datelibrary.DateHelper;
-import com.luseen.datelibrary.DatePatterns;
 
 import java.util.Date;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,9 +36,5 @@ public class MainActivity extends AppCompatActivity {
         String offset = DateConverter.getCurrentTimeZoneOffset().getHour() + "h "
                 + DateConverter.getCurrentTimeZoneOffset().getMinute() + "m";
         getCurrentTimeZoneOffset.setText(offset);
-
-        Log.e("onCreate ", "a  " + DateConverter.stringToDate("1993 Apr 13", DatePatterns.SIMPLE_DATE_PATTERN_WITH_DAY.toString()));
-        Log.e("offset ", "firs t " + DateConverter.getCurrentTimeZoneOffset().getHour());
-        Log.e("offset ", "second " + DateConverter.getCurrentTimeZoneOffset().getMinute());
     }
 }
