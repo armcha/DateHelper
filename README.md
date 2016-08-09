@@ -52,7 +52,6 @@ We also have string to date static method, just call it in this way
 ```java
 DateConverter.stringToDate(String yourDate,String dateTemplate)
 ```
-it will return you Date
 
 Get current time zone hour and minute offset
 ```java
@@ -69,8 +68,8 @@ Change text place holder in case you have null date
 ```java
 dateHelper.setNullDateText("Your place holder");
 ```
-
-Now we have a lot of date patterns, you can find patterns inside DatePatterns class 
+[1]: https://github.com/armcha/DateHelper/blob/master/datelibrary/src/main/java/com/luseen/datelibrary/DatePatterns.java
+Now we have a lot of date patterns, you can find patterns inside [DatePatterns][1]  class 
 ```java
 DateConverter.stringToDate("1993 Apr 13", DatePatterns.SIMPLE_DATE_PATTERN_WITH_DAY.toString())
 ```
