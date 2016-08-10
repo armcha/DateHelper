@@ -48,17 +48,6 @@ You can also add current time zone offset to your date, just adding this line
 dateHelper.shouldAddCurrentTimeZoneOffsetToDate();
 ```
 
-We also have string to date static method, just call it in this way
-```java
-DateConverter.stringToDate(String yourDate,String dateTemplate)
-```
-
-Get current time zone hour and minute offset
-```java
-DateConverter.getCurrentTimeZoneOffset().getHour()
-DateConverter.getCurrentTimeZoneOffset().getMinute()
-```
-
 Get current given date
 ```java
 dateHelper.getGivenDate()
@@ -68,6 +57,18 @@ Change text place holder in case you have null date
 ```java
 dateHelper.setNullDateText("Your place holder");
 ```
+---------------------------------------------------------------------
+We also have string to date static method, just call it in this way
+```java
+DateConverter.stringToDate(String yourDate,String datePattern)
+```
+
+Get current time zone hour and minute offset
+```java
+DateConverter.getCurrentTimeZoneOffset().getHour()
+DateConverter.getCurrentTimeZoneOffset().getMinute()
+```
+
 [1]: https://github.com/armcha/DateHelper/blob/master/datelibrary/src/main/java/com/luseen/datelibrary/DatePatterns.java
 Now we have a lot of date patterns, you can find patterns inside [DatePatterns][1]  class 
 ```java
