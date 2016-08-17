@@ -196,6 +196,28 @@ public class DateHelper {
         }
     }
 
+    @Nullable //1993
+    public String getSeconds() {
+        simpleDateFormat = new SimpleDateFormat("ss", locale);
+        if (date != null) {
+            return simpleDateFormat.format(date);
+        } else {
+            Log.e(DateHelper.class.getSimpleName(), LOG_TEXT);
+            return nullDateText;
+        }
+    }
+
+    //1993
+    public int getIntSeconds() {
+        simpleDateFormat = new SimpleDateFormat("ss", locale);
+        if (date != null) {
+            return Integer.parseInt(simpleDateFormat.format(date));
+        } else {
+            Log.e(DateHelper.class.getSimpleName(), LOG_TEXT);
+            return 0;
+        }
+    }
+
     /**
      * Adding current time zone offset
      *

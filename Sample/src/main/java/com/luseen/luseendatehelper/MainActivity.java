@@ -2,6 +2,8 @@ package com.luseen.luseendatehelper;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.luseen.datelibrary.DateConverter;
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         getCurrentTimeZoneOffset = (TextView) findViewById(R.id.get_current_time_zone_offset);
 
         currentDate.setText(new Date().toString());
-        DateHelper dateHelper = new DateHelper(new Date());
+        final DateHelper dateHelper = new DateHelper(new Date());
         getDay.setText(dateHelper.getDay());
         getMonthLongName.setText(dateHelper.getMonthLongName());
         getHour.setText(dateHelper.getHour());

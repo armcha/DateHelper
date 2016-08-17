@@ -11,14 +11,14 @@ Download
 
 Gradle:
 ```groovy
-compile 'com.github.armcha:datehelper:2.0.0'
+compile 'com.github.armcha:datehelper:2.1.0'
 ```
 Maven:
 ```xml
 <dependency>
   <groupId>com.github.armcha</groupId>
   <artifactId>datehelper</artifactId>
-  <version>2.0.0</version>
+  <version>2.1.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -41,6 +41,7 @@ dateHelper.getDayOfTheWeek() --- Wednesday
 dateHelper.getDayOfWeekShortName() --- Wed
 dateHelper.getMonth() ----------------- 04
 dateHelper.getYear() ---------------- 1993
+dateHelper.getSeconds() --------------- 46
 ```
 
 You can also add current time zone offset to your date, just adding this line 
