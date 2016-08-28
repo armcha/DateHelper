@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         getHour.setText(dateHelper.getHour());
         getDayOfTheWeek.setText(dateHelper.getDayOfTheWeek());
         getMonth.setText(dateHelper.getMonth());
+
         String offset = DateConverter.getCurrentTimeZoneOffset().getHour() + "h "
                 + DateConverter.getCurrentTimeZoneOffset().getMinute() + "m";
         getCurrentTimeZoneOffset.setText(offset);

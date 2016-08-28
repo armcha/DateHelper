@@ -1,6 +1,5 @@
 package com.luseen.datelibrary;
 
-import android.support.annotation.Nullable;
 import android.util.Log;
 
 import java.text.SimpleDateFormat;
@@ -42,7 +41,7 @@ public class DateHelper {
         }
     }
 
-    @Nullable //13
+    //13
     public String getDay() {
         simpleDateFormat = new SimpleDateFormat("dd", locale);
         if (date != null) {
@@ -64,7 +63,7 @@ public class DateHelper {
         }
     }
 
-    @Nullable //April
+    //April
     public String getMonthLongName() {
         simpleDateFormat = new SimpleDateFormat("MMMM", locale);
         if (date != null) {
@@ -75,7 +74,7 @@ public class DateHelper {
         }
     }
 
-    @Nullable //13:30
+    //13:30
     public String getHour() {
         simpleDateFormat = new SimpleDateFormat("HH:mm", locale);
         if (date != null) {
@@ -86,7 +85,7 @@ public class DateHelper {
         }
     }
 
-    @Nullable //1:30 AM
+    //1:30 AM
     public String getHourWithAMPM() {
         simpleDateFormat = new SimpleDateFormat("h:mm a", locale);
         if (date != null) {
@@ -97,7 +96,7 @@ public class DateHelper {
         }
     }
 
-    @Nullable //1:30
+    //1:30
     public String getHourIn12HourFormat() {
         simpleDateFormat = new SimpleDateFormat("h:mm", locale);
         if (date != null) {
@@ -108,7 +107,7 @@ public class DateHelper {
         }
     }
 
-    @Nullable //AM/PM
+    //AM/PM
     public String getDateAMPM() {
         simpleDateFormat = new SimpleDateFormat("a", locale);
         if (date != null) {
@@ -119,7 +118,7 @@ public class DateHelper {
         }
     }
 
-    @Nullable //Apr
+    //Apr
     public String getMonthShortName() {
         simpleDateFormat = new SimpleDateFormat("MMM", locale);
         if (date != null) {
@@ -130,7 +129,7 @@ public class DateHelper {
         }
     }
 
-    @Nullable //Wednesday
+    //Wednesday
     public String getDayOfTheWeek() {
         simpleDateFormat = new SimpleDateFormat("EEEE", locale);
         if (date != null) {
@@ -141,7 +140,7 @@ public class DateHelper {
         }
     }
 
-    @Nullable //Wed
+    //Wed
     public String getDayOfWeekShortName() {
         simpleDateFormat = new SimpleDateFormat("EEE", locale);
         if (date != null) {
@@ -152,7 +151,7 @@ public class DateHelper {
         }
     }
 
-    @Nullable //04
+    //04
     public String getMonth() {
         simpleDateFormat = new SimpleDateFormat("MM", locale);
         if (date != null) {
@@ -174,7 +173,7 @@ public class DateHelper {
         }
     }
 
-    @Nullable //1993
+    //1993
     public String getYear() {
         simpleDateFormat = new SimpleDateFormat("yyyy", locale);
         if (date != null) {
@@ -196,7 +195,30 @@ public class DateHelper {
         }
     }
 
-    @Nullable //1993
+    //19
+    public String getHourOnly() {
+        simpleDateFormat = new SimpleDateFormat("HH", locale);
+        if (date != null) {
+            return simpleDateFormat.format(date);
+        } else {
+            Log.e(DateHelper.class.getSimpleName(), LOG_TEXT);
+            return nullDateText;
+        }
+    }
+
+    //54
+    public String getMinuteOnly() {
+            simpleDateFormat = new SimpleDateFormat("mm", locale);
+        if (date != null) {
+            return simpleDateFormat.format(date);
+        } else {
+            Log.e(DateHelper.class.getSimpleName(), LOG_TEXT);
+            return nullDateText;
+        }
+    }
+
+
+    //1993
     public String getSeconds() {
         simpleDateFormat = new SimpleDateFormat("ss", locale);
         if (date != null) {
@@ -257,7 +279,7 @@ public class DateHelper {
      */
     public Date getGivenDate() {
         if (date == null) {
-            Log.e("GETTING GIVEN DATE ", "GIVEN DATE IS NULL!!!");
+            Log.e("GETTING GIVEN DATE ", "GIVEN DATE IS NULL!");
             return null;
         } else
             return date;

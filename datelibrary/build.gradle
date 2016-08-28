@@ -22,13 +22,12 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:24.1.1'
 }
 
 publish {
     groupId = 'com.github.armcha'
     artifactId = 'datehelper'
-    publishVersion = '2.1.0'
+    publishVersion = '2.2.0'
     desc = 'Simple date helper'
     licences = ['MIT']
     website = 'https://github.com/armcha/DateHelper'
