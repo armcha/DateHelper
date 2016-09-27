@@ -1,8 +1,8 @@
 # DateHelper
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-DateHelper-green.svg?style=true)](https://android-arsenal.com/details/1/4041)
 
-Simple dateHelper, that can help you to make your life easy.
-Just give date to dateHelper and get in different format
+Simple dateHelper, which can help you to make your life easier.
+Just give the date to dateHelper and get it in different formats.
 
 ![](screen_new.png)
 
