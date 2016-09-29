@@ -27,7 +27,7 @@ dependencies {
 publish {
     groupId = 'com.github.armcha'
     artifactId = 'datehelper'
-    publishVersion = '2.2.0'
+    publishVersion = '2.2.1'
     desc = 'Simple date helper'
     licences = ['MIT']
     website = 'https://github.com/armcha/DateHelper'
